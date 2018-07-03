@@ -1,0 +1,26 @@
+[Unit]
+Description=Quickcoin's distributed currency daemon
+After=network.target
+
+[Service]
+User=quickcoin
+Group=quickcoin
+
+Type=forking
+PIDFile=/var/lib/quickcoind/quickcoind.pid
+
+ExecStart=/usr/bin/quickcoind -daemon -pid=/var/lib/quickcoind/quickcoind.pid \
+          -conf=/etc/quickcoin/quickcoin.conf -datadir=/var/lib/quickcoind
+
+ExecStop=-/usr/bin/quickcoin-cli -conf=/etc/quickcoin/quickcoin.conf \
+         -datadir=/var/lib/quickcoind stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

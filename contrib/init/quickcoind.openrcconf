@@ -1,0 +1,26 @@
+# /etc/conf.d/quickcoind: config file for /etc/init.d/quickcoind
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/quickcoin/quickcoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/quickcoind"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/quickcoind.pid"
+
+# Where to write quickcoind data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/quickcoind"
+
+# User and group to own quickcoind process
+#BITCOIND_USER="quickcoin"
+#BITCOIND_GROUP="quickcoin"
+
+# Path to quickcoind executable
+#BITCOIND_BIN="/usr/bin/quickcoind"
+
+# Nice value to run quickcoind under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
